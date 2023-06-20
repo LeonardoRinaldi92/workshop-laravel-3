@@ -78,7 +78,7 @@ class PizzaController extends Controller
      */
     public function edit(Pizza $pizza)
     {
-        //
+        return view('pages.edit', compact('pizza'));
     }
 
     /**
@@ -90,7 +90,11 @@ class PizzaController extends Controller
      */
     public function update(Request $request, Pizza $pizza)
     {
-        //
+        $form_data = $request->all();
+
+        $pizza->update($form_data);
+
+        return redirect()->route('pizzas.show', $pizza);
     }
 
     /**
