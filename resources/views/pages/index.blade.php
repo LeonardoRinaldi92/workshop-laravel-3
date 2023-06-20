@@ -8,6 +8,9 @@
 </head>
 <body>
     <ul>
+        <li>
+            <a href="{{route('pizzas.create')}}">Crea la tua pizza!</a>
+        </li>
         @foreach ($pizzas as $pizza)
             <li>    
                 <a href="{{route('pizzas.show', $pizza)}}">{{$pizza['nome_pizza']}}</a>
