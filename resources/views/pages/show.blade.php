@@ -13,5 +13,14 @@
         <li>Taglia pizza: {{ $pizza['taglia_pizza'] }}</li>
         <li>Ingredienti: {{ $pizza['ingredienti_principali'] }}</li>
     </ul>
+    <form action="{{route('pizzas.destroy', $pizza)}}" method="POST">
+    @csrf
+    @method('DELETE')
+
+    <button class="btn btn-danger text-uppercase" type="submit" onclick="return confirm('sei sicuro??')">
+        elimina
+    </button>
+    </form>
+
 </body>
 </html>

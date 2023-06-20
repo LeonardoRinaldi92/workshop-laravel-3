@@ -16,8 +16,7 @@
 </head>
 
 <body>
-aiuto 
-
+<a href="{{route('pizzas.index')}}">VAI ALLE PIZZE!</a>
 
 </body>
 

@@ -105,6 +105,7 @@ class PizzaController extends Controller
      */
     public function destroy(Pizza $pizza)
     {
-        //
+        $pizza->delete();
+        return redirect()->route('pizzas.index');
     }
 }
