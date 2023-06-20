@@ -28,7 +28,7 @@ class PizzaTableSeeder extends Seeder
             $newPizza->ingredienti_principali = $faker->randomElement([
                 "Mozzarella", "Salame piccante", "Olive", "Cipolla", "Peperone verde", "Funghi", "Origano", "salame"
            ]);
-            $newPizza->prezzo = 30.00;
+            $newPizza->prezzo = $faker->randomFloat(2,4,15);
 
             // dd($newPizza);
             $newPizza->save();
