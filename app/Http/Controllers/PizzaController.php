@@ -47,7 +47,7 @@ class PizzaController extends Controller
      */
     public function show(Pizza $pizza)
     {
-        //
+        return view('pages.show', compact('pizza'));
     }
 
     /**

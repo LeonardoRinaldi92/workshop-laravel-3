@@ -7,12 +7,11 @@
     <title>Document</title>
 </head>
 <body>
+    <h2>{{ $pizza['nome_pizza'] }}</h2>
     <ul>
-        @foreach ($pizzas as $pizza)
-            <li>    
-                <a href="{{route('pizzas.show', $pizza)}}">{{$pizza['nome_pizza']}}</a>
-            </li>   
-        @endforeach
+        <li>Base pizza: {{ $pizza['base_pizza'] }}</li>
+        <li>Taglia pizza: {{ $pizza['taglia_pizza'] }}</li>
+        <li>Ingredienti: {{ $pizza['ingredienti_principali'] }}</li>
     </ul>
 </body>
 </html>
