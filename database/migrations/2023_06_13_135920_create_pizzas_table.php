@@ -21,8 +21,8 @@ return new class extends Migration
             $table->tinyInteger('tipologia_pizza'); //romana - napoletana - genovese
             $table->string('taglia_pizza', 15)->default('classic');
             $table->string('nome_pizza', 25);
-            $table->string('ingredienti_principali');
-            $table->string('ingredienti_secondari')->nullable();
+            // $table->string('ingredienti_principali');
+            // $table->string('ingredienti_secondari')->nullable();
             $table->decimal('prezzo', 4, 2);
             $table->timestamps();
         });
