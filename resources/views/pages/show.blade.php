@@ -11,7 +11,11 @@
     <ul>
         <li>Base pizza: {{ $pizza['base_pizza'] }}</li>
         <li>Taglia pizza: {{ $pizza['taglia_pizza'] }}</li>
-        <li>Ingredienti: {{ $pizza['ingredienti_principali'] }}</li>
+        <li>
+            @foreach($pizza->ingredients as $element)
+                {{$element->name}}
+            @endforeach
+        </li>
     </ul>
     <form action="{{route('pizzas.destroy', $pizza)}}" method="POST">
     @csrf
