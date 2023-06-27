@@ -12,8 +12,7 @@
 <body>
     <div class="container">
         <div class="row">
-            <div class="col-6">
-
+            <div class="">
                 <form action="{{route('pizzas.update', $pizza)}}" method="POST">
                     @csrf
 
@@ -40,12 +39,38 @@
                     <input type="number" class="form-control @error('tipologia_pizza') is-invalid @enderror" id="tipologia_pizza" name="tipologia_pizza" value="{{ old('tipologia_pizza') ?? $pizza->tipologia_pizza }}">
 
                     {{-- ingredienti principali --}}
-                    <label for="ingredienti_principali" class="form-label">Ingredienti Principali</label>
-                    <input type="text" class="form-control @error('ingredienti_principali') is-invalid @enderror" id="ingredienti_principali" name="ingredienti_principali" value="{{ old('ingredienti_principali') ?? $pizza->ingredienti_principali }}">
+                    {{-- <label for="ingredienti_principali" class="form-label">Ingredienti Principali</label>
+                    <input type="text" class="form-control @error('ingredienti_principali') is-invalid @enderror" id="ingredienti_principali" name="ingredienti_principali" value="{{ old('ingredienti_principali') ?? $pizza->ingredienti_principali }}"> --}}
 
                     {{-- ingredienti secondari --}}
-                    <label for="ingredienti_secondari" class="form-label">Ingredienti secondari</label>
-                    <input type="text" class="form-control @error('ingredienti_secondari') is-invalid @enderror" id="ingredienti_secondari" name="ingredienti_secondari" value="{{ old('ingredienti_secondari') ?? $pizza->ingredienti_secondari }}">
+                    {{-- <label for="ingredienti_secondari" class="form-label">Ingredienti secondari</label>
+                    <input type="text" class="form-control @error('ingredienti_secondari') is-invalid @enderror" id="ingredienti_secondari" name="ingredienti_secondari" value="{{ old('ingredienti_secondari') ?? $pizza->ingredienti_secondari }}"> --}}
+                        <div class="form-group">
+                            @foreach ($ingredients as $el)
+                                <div class="form-check" @error('ingredients') is-invalid @enderror>
+                                    @if($errors->any())
+
+                                    <input  class="form-check-input"
+                                            type="checkbox"
+                                            name="ingredients[]"
+                                            value="{{ $el->id }}"
+                                            id="ingredient-checkbox-{{ $el->id }}"
+                                            {{ in_array( $el->id, old( 'ingredients', [])) ? 'checked' : ''}}>
+                                @else
+                                    {{-- se non ci sono errori di validazione --}}
+                                    <input  class="form-check-input"
+                                            type="checkbox"
+                                            name="ingredients[]"
+                                            value="{{ $el->id }}"
+                                            id="ingredient-checkbox-{{ $el->id }}"
+                                            {{ ($pizza->ingredients->contains($el)) ? 'checked' : ''}}
+                                    >
+                                @endif
+                                    <label class="form-check-label" for="ingredient-checkbox-{{ $el->id }}">{{ $el->name }}</label>
+                                </div>
+                                {{-- </div> --}}
+                            @endforeach
+                        </div>
 
                     {{-- prezzo --}}
                     <label for="prezzo" class="form-label">Prezzo</label>

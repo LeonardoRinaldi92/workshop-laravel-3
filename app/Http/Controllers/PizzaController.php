@@ -26,8 +26,9 @@ class PizzaController extends Controller
      */
     public function create()
     {
+        $ingredients = Ingredient::all();
         
-        return view('pages.create');
+        return view('pages.create', compact('ingredients'));
     }
 
     /**
@@ -80,7 +81,9 @@ class PizzaController extends Controller
      */
     public function edit(Pizza $pizza)
     {
-        return view('pages.edit', compact('pizza'));
+        $ingredients = Ingredient::all();
+
+        return view('pages.edit', compact('pizza', 'ingredients'));
     }
 
     /**
