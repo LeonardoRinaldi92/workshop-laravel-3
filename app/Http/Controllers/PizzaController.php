@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pizza;
+use App\Models\Ingredient;
 use Illuminate\Http\Request;
 
 class PizzaController extends Controller
@@ -25,6 +26,7 @@ class PizzaController extends Controller
      */
     public function create()
     {
+        
         return view('pages.create');
     }
 
